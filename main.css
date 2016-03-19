@@ -1,0 +1,49 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color:#2ABB9B;
+	font-family:Arial, Helvetica, sans-serif;
+	}
+#mainStage{
+	background-color:#fff;
+	width:800px;
+	height:400px;
+	margin:auto;
+	margin-top:50px;
+	}
+#noted{
+	background-color:#fff;
+	width:800px;
+	height:400px;
+	margin:auto;
+	margin-top:50px;
+   	}
+#icon_prefix2{
+font-size:25px;
+   	}
+
+
+#spacing{   
+	height:50px;
+	}
+#clockOuter{
+	margin:auto;
+	width:100px;
+	height:100px;
+	position:relative;
+	overflow:hidden;
+	}
+#clockInner{
+	position:absolute; 
+	height:100px;
+	}
+#timeShow{
+	position:static;
+	margin:auto;
+	font-size:55px;
+	width:100%;
+	text-align:center;	
+	}
+@media screen and (max-width:800px){
+	#mainStage{width:100%;}
+	}
