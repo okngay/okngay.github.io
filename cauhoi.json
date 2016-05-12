@@ -1,10 +1,5 @@
 {
-    "employees": [
-    {
-        "firstName": "John"
-    }, {
-        "firstName": "Anna"
-    }, {
-        "firstName": "Peter"
-    }]
+"name": "Zara Ali",
+"age" : "67",
+"sex": "female"
 }
