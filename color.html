@@ -8,6 +8,48 @@ body {
     background: white;
 }
 
+input[type=text] {
+    width: 600px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+input[type=text]:hover {
+    width: 700px;
+}
+
+h1 {
+    width: 600px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+h1:hover {
+    width: 700px;
+}
+
+.w3-ripple {
+    position: relative;
+    overflow: hidden
+}
+
+.w3-ripple:after {
+    content: "";
+    background: #ccc;
+    position: absolute;
+    padding: 300%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.8s
+}
+
+.w3-ripple:active:after {
+    padding: 0;
+    opacity: 1;
+    transition: 0s
+}
+
 input {
     background: white;
     font-size: 32px;
@@ -23,7 +65,7 @@ input {
 
 .white {
     background: white;
-    font-size: 32px;
+    font-size: 25px;
     padding: 20px 20px 20px 10px;
     display: block;
     width: 600px;
@@ -165,6 +207,8 @@ body {
     height: 120px;
     position: relative;
     width: 350px;
+    text-align: center;
+    font-size: 55px;
 }
 
 .cloud:after,
@@ -198,34 +242,42 @@ body {
 
 <body style="background-color:{{dataColor[_score]}}" ng-app="app" ng-controller="ctrl" ng-keydown="key2($event)">
     <br>
-    <br>
-    <br>
     <div id="background-wrap">
         <div class="x1">
-            <div class="cloud"></div>
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
         </div>
         <div class="x2">
-            <div class="cloud"></div>
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
         </div>
         <div class="x3">
-            <div class="cloud"></div>
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
         </div>
         <div class="x4">
-            <div class="cloud"></div>
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
         </div>
         <div class="x5">
-            <div class="cloud"></div>
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
         </div>
     </div>
-    <h1 class="white" style="text-align: center; color: black; background white;" ng-click="speak()"> {{dataColor[_score]}} <br> You knew {{_score}}/147 color name!</h1>
+    <h1 class="white w3-ripple" style="text-align: center; color: black; background white;" ng-click="speak()">  You knew {{_score}}/147 color name!</h1>
     <div ng-init="myCol=''">
-        <input type="text" placeholder="Input color name, then press 'Enter' " style=" border-bottom: 20px solid {{myCol}}" title="Nhập tên màu" ng-keydown="key($event)" ng-model="myCol" value="{{myCol}}">
+        <input type="text" placeholder="Input color name, then press 'Enter' " style=" color:{{bg}} ; border-bottom: 20px solid {{myCol}}" title="Nhập tên màu" ng-keydown="key($event)" ng-model="myCol" value="{{myCol}}">
     </div>
     <script type="text/javascript">
     var app = angular.module("app", []);
     app.controller("ctrl", function($scope) {
 
-
+        //Set data
         if (localStorage.getColor != 'yes') {
             localStorage.getColor = 'yes';
             localStorage.score = 0;
@@ -239,24 +291,43 @@ body {
                 history.go(0);
             }, 500);
         }
-
         $scope._score = localStorage.score;
         var aa = localStorage.AA.split(',');
-
-
         $scope.dataColor = aa;
+
+        //Speech
         var utterance;
         utterance = new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]);
         window.speechSynthesis.speak(utterance);
+
+
+
+
+
+
+        //App
         $scope.key = function($event) {
+
+            setInterval(function() {
+                $scope.$apply(function() {
+                    if (($scope.myCol == $scope.dataColor[$scope._score] || $scope.myCol == $scope.dataColor[$scope._score].toLowerCase())) {
+                        $scope.bg = 'green';
+
+                    }
+
+                });
+            }, 2000);
+
             if ($event.keyCode == 13 && ($scope.myCol == $scope.dataColor[$scope._score] || $scope.myCol == $scope.dataColor[$scope._score].toLowerCase())) {
+
                 $scope._score++;
                 localStorage.score++;
                 $scope.myCol = '';
-                utterance = new SpeechSynthesisUtterance('Right!' +
+                utterance = new SpeechSynthesisUtterance(
                     $scope.dataColor[$scope._score]);
                 window.speechSynthesis.speak(utterance);
 
+                $scope.bg = 'black';
                 if (localStorage.score == 147) {
                     localStorage.score = 0;
                     $scope._score = localStorage.score;
@@ -267,19 +338,25 @@ body {
                     localStorage.AA = array;
                     history.go(0);
 
+                    $scope.bg = 'black';
                 }
-
-
             } else {
                 if ($event.keyCode == 13 && $scope.myCol != $scope.dataColor[$scope._score]) {
+                    $scope.bg = 'red';
 
-                    utterance = new SpeechSynthesisUtterance('Wrong!');
-                    window.speechSynthesis.speak(utterance);
+                    setTimeout(function() {
+                        $scope.$apply(function() {
+                            $scope.bg = 'black';
+                        });
+                    }, 1000);
 
                 }
             }
 
         };
+
+
+
 
         $scope.spea = function($event) {
             if ($event.keyCode == 32) {
@@ -294,13 +371,18 @@ body {
             }
         };
 
+
+
         $scope.speak = function() {
 
             utterance = new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]);
             window.speechSynthesis.speak(utterance);
 
-
         };
+
+
+
+
     });
     </script>
     <script src="https://cdn.rawgit.com/disjukr/activate-power-mode/gh-pages/dist/activate-power-mode.js"></script>
@@ -310,7 +392,7 @@ body {
     document.body.addEventListener('input', POWERMODE);
     </script>
 </body>
-<a title="Click to BKD facebook" href="http://fb.com/buikhuongduy.t2" style="text-align: center;  margin-top: 10px;">
+<a title="Click to BKD facebook" href="http://fb.com/buikhuongduy.t2" style="text-align: center; ">
     <h4>Design with ❤ by : Bùi Khương Duy</h4></a>
 
 </html>
