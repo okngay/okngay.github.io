@@ -1,1 +1,398 @@
-<!DOCTYPE html><html><meta charset="utf-16"><script src="../_lib/angular.min.js"></script><title>Color name! - okngay.github.io</title><style type="text/css">body{background: white;}input[type=text]{width: 600px; -webkit-transition: width .35s ease-in-out; transition: width .35s ease-in-out;}input[type=text]:hover{width: 700px;}h1{width: 600px; -webkit-transition: width .35s ease-in-out; transition: width .35s ease-in-out;}h1:hover{width: 700px;}.w3-ripple{position: relative; overflow: hidden}.w3-ripple:after{content: ""; background: #ccc; position: absolute; padding: 300%; bottom: 0; left: 0; opacity: 0; transition: 0.8s}.w3-ripple:active:after{padding: 0; opacity: 1; transition: 0s}input{background: white; font-size: 32px; padding: 20px 20px 20px 10px; display: block; width: 600px; border: none; border-bottom: 20px solid #757575; margin: auto; margin-top: 100px; text-align: center;}.white{background: white; font-size: 25px; padding: 20px 20px 20px 10px; display: block; width: 600px; border: none; margin: auto; text-align: center; outline: dotted;}h1:hover{cursor: pointer; outline: dotted;}input:hover{outline: none;}h4:hover{color: white;}body{background: #00b4ff; color: #333; font: 100% Arial, Sans Serif; height: 100vh; margin: 0; padding: 0; overflow-x: hidden;}#background-wrap{bottom: 0; left: 0; padding-top: 50px; position: fixed; right: 0; top: 0; z-index: -1;}/* KEYFRAMES */@-webkit-keyframes animateCloud{0%{margin-left: -1000px;}100%{margin-left: 100%;}}@-moz-keyframes animateCloud{0%{margin-left: -1000px;}100%{margin-left: 100%;}}@keyframes animateCloud{0%{margin-left: -1000px;}100%{margin-left: 100%;}}/* ANIMATIONS */.x1{-webkit-animation: animateCloud 35s linear infinite; -moz-animation: animateCloud 35s linear infinite; animation: animateCloud 35s linear infinite; -webkit-transform: scale(0.65); -moz-transform: scale(0.65); transform: scale(0.65);}.x2{-webkit-animation: animateCloud 20s linear infinite; -moz-animation: animateCloud 20s linear infinite; animation: animateCloud 20s linear infinite; -webkit-transform: scale(0.3); -moz-transform: scale(0.3); transform: scale(0.3);}.x3{-webkit-animation: animateCloud 30s linear infinite; -moz-animation: animateCloud 30s linear infinite; animation: animateCloud 30s linear infinite; -webkit-transform: scale(0.5); -moz-transform: scale(0.5); transform: scale(0.5);}.x4{-webkit-animation: animateCloud 18s linear infinite; -moz-animation: animateCloud 18s linear infinite; animation: animateCloud 18s linear infinite; -webkit-transform: scale(0.4); -moz-transform: scale(0.4); transform: scale(0.4);}.x5{-webkit-animation: animateCloud 25s linear infinite; -moz-animation: animateCloud 25s linear infinite; animation: animateCloud 25s linear infinite; -webkit-transform: scale(0.55); -moz-transform: scale(0.55); transform: scale(0.55);}/* OBJECTS */.cloud{background: #fff; background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(100%, #f1f1f1)); background: -webkit-linear-gradient(top, #fff 5%, #f1f1f1 100%); background: -o-linear-gradient(top, #fff 5%, #f1f1f1 100%); background: -ms-linear-gradient(top, #fff 5%, #f1f1f1 100%); background: linear-gradient(top, #fff 5%, #f1f1f1 100%); filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1', GradientType=0); -webkit-border-radius: 100px; -moz-border-radius: 100px; border-radius: 100px; -webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1); box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1); height: 120px; position: relative; width: 350px; text-align: center; font-size: 55px;}.cloud:after,.cloud:before{background: #fff; content: ''; position: absolute; z-indeX: -1;}.cloud:after{-webkit-border-radius: 100px; -moz-border-radius: 100px; border-radius: 100px; height: 100px; left: 50px; top: -50px; width: 100px;}.cloud:before{-webkit-border-radius: 200px; -moz-border-radius: 200px; border-radius: 200px; width: 180px; height: 180px; right: 50px; top: -90px;}</style><body style="background-color:{{dataColor[_score]}}" ng-app="app" ng-controller="ctrl" ng-keydown="key2($event)"> <br><div id="background-wrap"> <div class="x1"> <div class="cloud">{{dataColor[_score]}}</div></div><div class="x2"> <div class="cloud">{{dataColor[_score]}}</div></div><div class="x3"> <div class="cloud">{{dataColor[_score]}}</div></div><div class="x4"> <div class="cloud">{{dataColor[_score]}}</div></div><div class="x5"> <div class="cloud">{{dataColor[_score]}}</div></div></div><h1 class="white w3-ripple" style="text-align: center; color: black; background white;" ng-click="speak()"> You knew{{_score}}/147 color name!</h1> <div ng-init="myCol=''"> <input type="text" placeholder="Input color name, then press 'Enter' " style=" color:{{bg}}; border-bottom: 20px solid{{myCol}}" title="Nhập tên màu" ng-keydown="key($event)" ng-model="myCol" value="{{myCol}}"> </div><script type="text/javascript">var app=angular.module("app", []); app.controller("ctrl", function($scope){//Set data if (localStorage.getColor !='yes'){localStorage.getColor='yes'; localStorage.score=0; var data=["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"]; data.sort(function(a, b){return 0.5 - Math.random();}); localStorage.AA=data; setTimeout(function(){history.go(0);}, 500);}$scope._score=localStorage.score; var aa=localStorage.AA.split(','); $scope.dataColor=aa; //Speech var utterance; utterance=new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]); window.speechSynthesis.speak(utterance); //App $scope.key=function($event){setInterval(function(){$scope.$apply(function(){if (($scope.myCol==$scope.dataColor[$scope._score] || $scope.myCol==$scope.dataColor[$scope._score].toLowerCase())){$scope.bg='green';}});}, 2000); if ($event.keyCode==13 && ($scope.myCol==$scope.dataColor[$scope._score] || $scope.myCol==$scope.dataColor[$scope._score].toLowerCase())){$scope._score++; localStorage.score++; $scope.myCol=''; utterance=new SpeechSynthesisUtterance( $scope.dataColor[$scope._score]); window.speechSynthesis.speak(utterance); $scope.bg='black'; if (localStorage.score==147){localStorage.score=0; $scope._score=localStorage.score; var array=["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"]; array.sort(function(a, b){return 0.5 - Math.random();}); localStorage.AA=array; history.go(0); $scope.bg='black';}}else{if ($event.keyCode==13 && $scope.myCol !=$scope.dataColor[$scope._score]){$scope.bg='red'; setTimeout(function(){$scope.$apply(function(){$scope.bg='black';});}, 1000);}}}; $scope.spea=function($event){if ($event.keyCode==32){utterance=new SpeechSynthesisUtterance('Current color is : ' + $scope.dataColor[$scope._score]); window.speechSynthesis.speak(utterance);}if ($event.keyCode==16){utterance=new SpeechSynthesisUtterance($scope.myCol); window.speechSynthesis.speak(utterance);}}; $scope.speak=function(){utterance=new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]); window.speechSynthesis.speak(utterance);};}); </script> <script src="activate-power-mode.js"></script> <script>POWERMODE.colorful=true; POWERMODE.shake=false; document.body.addEventListener('input', POWERMODE); </script></body><a title="Click to BKD facebook" href="http://fb.com/buikhuongduy.t2" style="text-align: center; "> <h4>Design with ❤ by : Bùi Khương Duy</h4></a></html>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-16">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<title>Color name! - okngay.github.io</title>
+<style type="text/css">
+body {
+    background: white;
+}
+
+input[type=text] {
+    width: 600px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+input[type=text]:hover {
+    width: 700px;
+}
+
+h1 {
+    width: 600px;
+    -webkit-transition: width .35s ease-in-out;
+    transition: width .35s ease-in-out;
+}
+
+h1:hover {
+    width: 700px;
+}
+
+.w3-ripple {
+    position: relative;
+    overflow: hidden
+}
+
+.w3-ripple:after {
+    content: "";
+    background: #ccc;
+    position: absolute;
+    padding: 300%;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.8s
+}
+
+.w3-ripple:active:after {
+    padding: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+input {
+    background: white;
+    font-size: 32px;
+    padding: 20px 20px 20px 10px;
+    display: block;
+    width: 600px;
+    border: none;
+    border-bottom: 20px solid #757575;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+
+.white {
+    background: white;
+    font-size: 25px;
+    padding: 20px 20px 20px 10px;
+    display: block;
+    width: 600px;
+    border: none;
+    margin: auto;
+    text-align: center;
+    outline: dotted;
+}
+
+h1:hover {
+    cursor: pointer;
+    outline: dotted;
+}
+
+input:hover {
+    outline: none;
+}
+
+h4:hover {
+    color: white;
+}
+
+body {
+    background: #00b4ff;
+    color: #333;
+    font: 100% Arial, Sans Serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#background-wrap {
+    bottom: 0;
+    left: 0;
+    padding-top: 50px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+
+/* KEYFRAMES */
+
+@-webkit-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@-moz-keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+@keyframes animateCloud {
+    0% {
+        margin-left: -1000px;
+    }
+    100% {
+        margin-left: 100%;
+    }
+}
+
+
+/* ANIMATIONS */
+
+.x1 {
+    -webkit-animation: animateCloud 35s linear infinite;
+    -moz-animation: animateCloud 35s linear infinite;
+    animation: animateCloud 35s linear infinite;
+    -webkit-transform: scale(0.65);
+    -moz-transform: scale(0.65);
+    transform: scale(0.65);
+}
+
+.x2 {
+    -webkit-animation: animateCloud 20s linear infinite;
+    -moz-animation: animateCloud 20s linear infinite;
+    animation: animateCloud 20s linear infinite;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+.x3 {
+    -webkit-animation: animateCloud 30s linear infinite;
+    -moz-animation: animateCloud 30s linear infinite;
+    animation: animateCloud 30s linear infinite;
+    -webkit-transform: scale(0.5);
+    -moz-transform: scale(0.5);
+    transform: scale(0.5);
+}
+
+.x4 {
+    -webkit-animation: animateCloud 18s linear infinite;
+    -moz-animation: animateCloud 18s linear infinite;
+    animation: animateCloud 18s linear infinite;
+    -webkit-transform: scale(0.4);
+    -moz-transform: scale(0.4);
+    transform: scale(0.4);
+}
+
+.x5 {
+    -webkit-animation: animateCloud 25s linear infinite;
+    -moz-animation: animateCloud 25s linear infinite;
+    animation: animateCloud 25s linear infinite;
+    -webkit-transform: scale(0.55);
+    -moz-transform: scale(0.55);
+    transform: scale(0.55);
+}
+
+
+/* OBJECTS */
+
+.cloud {
+    background: #fff;
+    background: -moz-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, #fff), color-stop(100%, #f1f1f1));
+    background: -webkit-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -o-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: -ms-linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    background: linear-gradient(top, #fff 5%, #f1f1f1 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#fff', endColorstr='#f1f1f1', GradientType=0);
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    -webkit-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
+    height: 120px;
+    position: relative;
+    width: 350px;
+    text-align: center;
+    font-size: 55px;
+}
+
+.cloud:after,
+.cloud:before {
+    background: #fff;
+    content: '';
+    position: absolute;
+    z-indeX: -1;
+}
+
+.cloud:after {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    height: 100px;
+    left: 50px;
+    top: -50px;
+    width: 100px;
+}
+
+.cloud:before {
+    -webkit-border-radius: 200px;
+    -moz-border-radius: 200px;
+    border-radius: 200px;
+    width: 180px;
+    height: 180px;
+    right: 50px;
+    top: -90px;
+}
+</style>
+
+<body style="background-color:{{dataColor[_score]}}" ng-app="app" ng-controller="ctrl" ng-keydown="key2($event)">
+    <br>
+    <div id="background-wrap">
+        <div class="x1">
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
+        </div>
+        <div class="x2">
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
+        </div>
+        <div class="x3">
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
+        </div>
+        <div class="x4">
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
+        </div>
+        <div class="x5">
+            <div class="cloud">
+                {{dataColor[_score]}}
+            </div>
+        </div>
+    </div>
+    <h1 class="white w3-ripple" style="text-align: center; color: black; background white;" ng-click="speak()">  You knew {{_score}}/147 color name!</h1>
+    <div ng-init="myCol=''">
+        <input type="text" placeholder="Input color name, then press 'Enter' " style=" color:{{bg}} ; border-bottom: 20px solid {{myCol}}" title="Nhập tên màu" ng-keydown="key($event)" ng-model="myCol" value="{{myCol}}">
+    </div>
+    <script type="text/javascript">
+    var app = angular.module("app", []);
+    app.controller("ctrl", function($scope) {
+
+        //Set data
+        if (localStorage.getColor != 'yes') {
+            localStorage.getColor = 'yes';
+            localStorage.score = 0;
+            var data = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"];
+            data.sort(function(a, b) {
+                return 0.5 - Math.random();
+            });
+            localStorage.AA = data;
+
+            setTimeout(function() {
+                history.go(0);
+            }, 500);
+        }
+        $scope._score = localStorage.score;
+        var aa = localStorage.AA.split(',');
+        $scope.dataColor = aa;
+
+        //Speech
+        var utterance;
+        utterance = new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]);
+        window.speechSynthesis.speak(utterance);
+
+
+
+
+
+
+        //App
+        $scope.key = function($event) {
+
+            setInterval(function() {
+                $scope.$apply(function() {
+                    if (($scope.myCol == $scope.dataColor[$scope._score] || $scope.myCol == $scope.dataColor[$scope._score].toLowerCase())) {
+                        $scope.bg = 'green';
+
+                    }
+
+                });
+            }, 2000);
+
+            if ($event.keyCode == 13 && ($scope.myCol == $scope.dataColor[$scope._score] || $scope.myCol == $scope.dataColor[$scope._score].toLowerCase())) {
+
+                $scope._score++;
+                localStorage.score++;
+                $scope.myCol = '';
+                utterance = new SpeechSynthesisUtterance(
+                    $scope.dataColor[$scope._score]);
+                window.speechSynthesis.speak(utterance);
+
+                $scope.bg = 'black';
+                if (localStorage.score == 147) {
+                    localStorage.score = 0;
+                    $scope._score = localStorage.score;
+                    var array = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod", "DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "Darkorange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"];
+                    array.sort(function(a, b) {
+                        return 0.5 - Math.random();
+                    });
+                    localStorage.AA = array;
+                    history.go(0);
+
+                    $scope.bg = 'black';
+                }
+            } else {
+                if ($event.keyCode == 13 && $scope.myCol != $scope.dataColor[$scope._score]) {
+                    $scope.bg = 'red';
+
+                    setTimeout(function() {
+                        $scope.$apply(function() {
+                            $scope.bg = 'black';
+                        });
+                    }, 1000);
+
+                }
+            }
+
+        };
+
+
+
+
+        $scope.spea = function($event) {
+            if ($event.keyCode == 32) {
+                utterance = new SpeechSynthesisUtterance('Current color is : ' + $scope.dataColor[$scope._score]);
+                window.speechSynthesis.speak(utterance);
+
+            }
+
+            if ($event.keyCode == 16) {
+                utterance = new SpeechSynthesisUtterance($scope.myCol);
+                window.speechSynthesis.speak(utterance);
+            }
+        };
+
+
+
+        $scope.speak = function() {
+
+            utterance = new SpeechSynthesisUtterance('' + $scope.dataColor[$scope._score]);
+            window.speechSynthesis.speak(utterance);
+
+        };
+
+
+
+
+    });
+    </script>
+    <script src="https://cdn.rawgit.com/disjukr/activate-power-mode/gh-pages/dist/activate-power-mode.js"></script>
+    <script>
+    POWERMODE.colorful = true;
+    POWERMODE.shake = false;
+    document.body.addEventListener('input', POWERMODE);
+    </script>
+</body>
+<a title="Click to BKD facebook" href="http://fb.com/buikhuongduy.t2" style="text-align: center; ">
+    <h4>Design with ❤ by : Bùi Khương Duy</h4></a>
+
+</html>
